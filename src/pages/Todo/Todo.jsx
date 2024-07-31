@@ -1,3 +1,4 @@
+import Button from "@/components/Button/Button.jsx";
 import TodoBox from "@/components/TodoBox/TodoBox.jsx";
 import "./Todo.css";
 
@@ -19,6 +20,9 @@ function Header() {
     <div className="header">
       <h1>🕐 Your To-do List</h1>
       <p>List of tasks you need to complete.</p>
+      <Button>
+        <i className="fas fa-plus" /> Add Task
+      </Button>
     </div>
   );
 }
