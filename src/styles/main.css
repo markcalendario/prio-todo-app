@@ -1,4 +1,5 @@
 @import "./abstracts/variables.css";
 @import "./resets/layout.css";
 @import "./resets/typography.css";
+@import "./resets/scrollbars.css";
 @import "../fontawesome/css/all.css";

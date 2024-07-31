@@ -5,7 +5,7 @@
   flex-wrap: wrap;
   gap: 20px;
   align-items: center;
-  padding: 15px;
+  padding: 15px 25px;
 }
 
 .task-card:hover {

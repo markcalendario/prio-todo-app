@@ -1,0 +1,16 @@
+*::-webkit-scrollbar {
+  width: 8px;
+  background-color: var(--gray-1);
+}
+
+*::-webkit-scrollbar:hover {
+  background-color: var(--gray-1);
+}
+
+*::-webkit-scrollbar-thumb:vertical {
+  background: var(--gray-4);
+}
+
+*::-webkit-scrollbar-thumb:vertical:active {
+  background: rgba(0, 0, 0, 0.61);
+}
