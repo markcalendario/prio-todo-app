@@ -10,7 +10,7 @@ export default function TaskCard({
   return (
     <div className="task-card">
       <div className="context">
-        <p className="title">{title}</p>
+        <h1 className="title">{title}</h1>
         <p className="description">{description}</p>
         <p className="date">{absoluteTimestamp}</p>
       </div>

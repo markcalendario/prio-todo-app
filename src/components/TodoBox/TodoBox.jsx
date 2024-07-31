@@ -11,6 +11,7 @@ export default function TodoBox() {
         <button>Missing</button>
       </aside>
       <div className="todo-tasks">
+        {/* <EmptySection title="All tasks complete." description="Nice work!" /> */}
         <TaskCard
           title="Grocery"
           description="Buy 700 garlic and 500 tomatoes."

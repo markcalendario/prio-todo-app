@@ -1,0 +1,19 @@
+.empty-section {
+  padding: 50px 0;
+  user-select: none;
+  text-align: center;
+}
+
+.empty-section img {
+  max-width: 150px;
+  user-select: none;
+}
+
+.empty-section .title {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.empty-section .description {
+  margin-top: 5px;
+}
