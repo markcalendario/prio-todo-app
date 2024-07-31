@@ -1,0 +1,32 @@
+.task-card {
+  transition: 0.1s ease;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: center;
+}
+
+.task-card .context .title {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.task-card .context .description {
+  color: var(--gray-6);
+  max-width: 800px;
+  font-size: 14px;
+}
+
+.task-card .context .date {
+  margin-top: 7px;
+  font-size: 10px;
+  font-weight: 500;
+  color: var(--gray-4);
+  align-self: baseline;
+}
+
+.task-card .options {
+  display: flex;
+  gap: 5px;
+}

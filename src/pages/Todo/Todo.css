@@ -1,0 +1,9 @@
+#todo {
+  background-color: var(--background-color);
+  min-height: 100vh;
+  padding: 30px 0;
+}
+
+#todo .header p {
+  margin-top: 5px;
+}
