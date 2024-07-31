@@ -1,11 +1,11 @@
 .todo-box {
   background-color: var(--white);
-  padding: 25px;
   margin-top: 10px;
   width: 100%;
   min-height: 500px;
-  border-radius: 7px;
   border: 1px var(--gray-2) solid;
+  border-radius: 5px;
+  overflow: hidden;
 
   display: grid;
   grid-template-areas:
@@ -13,7 +13,6 @@
     "tasks";
   grid-template-columns: 1fr;
   grid-template-rows: auto 1fr;
-  gap: 20px;
 }
 
 .todo-sidebar {
@@ -38,7 +37,4 @@
 
 .todo-tasks {
   grid-area: tasks;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
 }

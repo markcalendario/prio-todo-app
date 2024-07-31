@@ -5,6 +5,11 @@
   flex-wrap: wrap;
   gap: 20px;
   align-items: center;
+  padding: 15px;
+}
+
+.task-card:hover {
+  background-color: var(--gray-1);
 }
 
 .task-card .context .title {

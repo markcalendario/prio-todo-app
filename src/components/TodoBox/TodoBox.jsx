@@ -22,6 +22,46 @@ export default function TodoBox() {
           description="Buy 700 garlic and 500 tomatoes."
           absoluteTimestamp="25 days ago"
         />
+        <TaskCard
+          title="Grocery"
+          description="Buy 700 garlic and 500 tomatoes."
+          absoluteTimestamp="7 days ago"
+        />
+        <TaskCard
+          title="Grocery"
+          description="Buy 700 garlic and 500 tomatoes."
+          absoluteTimestamp="25 days ago"
+        />
+        <TaskCard
+          title="Grocery"
+          description="Buy 700 garlic and 500 tomatoes."
+          absoluteTimestamp="7 days ago"
+        />
+        <TaskCard
+          title="Grocery"
+          description="Buy 700 garlic and 500 tomatoes."
+          absoluteTimestamp="25 days ago"
+        />
+        <TaskCard
+          title="Grocery"
+          description="Buy 700 garlic and 500 tomatoes."
+          absoluteTimestamp="7 days ago"
+        />
+        <TaskCard
+          title="Grocery"
+          description="Buy 700 garlic and 500 tomatoes."
+          absoluteTimestamp="25 days ago"
+        />
+        <TaskCard
+          title="Grocery"
+          description="Buy 700 garlic and 500 tomatoes."
+          absoluteTimestamp="7 days ago"
+        />
+        <TaskCard
+          title="Grocery"
+          description="Buy 700 garlic and 500 tomatoes."
+          absoluteTimestamp="25 days ago"
+        />
       </div>
     </div>
   );
