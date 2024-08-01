@@ -81,4 +81,11 @@ export default class Tasks {
     localStorage.setItem("tasks", updatedTasks);
     return true;
   }
+
+  deleteTask(taskId) {
+    console.log(taskId);
+    const updatedTasks = this.tasks.filter((task) => task.id !== taskId);
+    console.log(updatedTasks);
+    localStorage.setItem("tasks", JSON.stringify(updatedTasks));
+  }
 }

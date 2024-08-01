@@ -42,6 +42,11 @@ function Todo() {
     }
   }, [taskType]);
 
+  const handleTaskTypeChange = (value) => {
+    setTaskType(value);
+    fetchTasks();
+  };
+
   const taskTabs = [
     { name: "Pending", value: "pending" },
     { name: "Important", value: "important" },
@@ -69,12 +74,9 @@ function Todo() {
             <BreadCrumb
               initialActive={taskTabs[0].name}
               data={taskTabs}
-              handleSelect={(value) => {
-                setTaskType(value);
-                fetchTasks();
-              }}
+              handleSelect={handleTaskTypeChange}
             />
-            <RenderTasks tasks={tasks} />
+            <RenderTasks tasks={tasks} fetchTasks={fetchTasks} />
           </div>
         </div>
       </section>
@@ -94,15 +96,17 @@ function Header({ toggleAddTaskModal }) {
   );
 }
 
-function RenderTasks({ tasks }) {
+function RenderTasks({ tasks, fetchTasks }) {
   const renderTasks = () => {
     return tasks.map((task) => (
       <TaskCard
         key={task.id}
+        id={task.id}
         title={task.title}
         description={task.description}
         status={task.status}
         targetDate={task.targetDate}
+        onDeleteSuccess={fetchTasks}
       />
     ));
   };

@@ -1,0 +1,14 @@
+.delete-task-modal .buttons {
+  display: flex;
+  gap: 5px;
+}
+
+.delete-task-modal .delete-btn {
+  background-color: var(--primary-color);
+  color: var(--gray-0);
+}
+
+.delete-task-modal .cancel-btn {
+  background-color: var(--gray-0);
+  color: var(--gray-10);
+}

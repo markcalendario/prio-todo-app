@@ -10,7 +10,9 @@ export default function Modal({
 }) {
   return (
     <div className="modal-backdrop">
-      <div className={"modal-box" + (className ? ` ${className}` : "")}>
+      <div
+        className={"modal-box" + (className ? ` ${className}` : "")}
+        data-aos="fade-up">
         <div className="head">
           <div className="texts">
             <h1>{title}</h1>
