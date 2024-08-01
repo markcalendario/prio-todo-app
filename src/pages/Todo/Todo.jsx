@@ -3,6 +3,7 @@ import Button from "@/components/Button/Button.jsx";
 import AddTaskModal from "@/components/Modal/Collections/AddTaskModal/AddTaskModal.jsx";
 import Navbar from "@/components/Navbar/Navbar.jsx";
 import TaskCard from "@/components/TaskCard/TaskCard.jsx";
+import useModal from "@/hooks/useModal.jsx";
 import { Fragment } from "react";
 import "./Todo.css";
 
@@ -16,6 +17,8 @@ function TodoPage() {
 }
 
 function Todo() {
+  const [isVisible, toggleAddTaskModal] = useModal(false);
+
   const taskTabs = [
     { name: "Pending", value: "pending" },
     { name: "Important", value: "important" },
@@ -25,11 +28,11 @@ function Todo() {
 
   return (
     <Fragment>
-      <AddTaskModal />
+      <AddTaskModal isVisible={isVisible} toggleModal={toggleAddTaskModal} />
       <section id="todo">
         <div className="container">
           <div className="wrapper">
-            <Header />
+            <Header toggleAddTaskModal={toggleAddTaskModal} />
             <BreadCrumb
               initialActive={taskTabs[0].name}
               data={taskTabs}
@@ -43,12 +46,12 @@ function Todo() {
   );
 }
 
-function Header() {
+function Header({ toggleAddTaskModal }) {
   return (
     <div className="header">
       <h1>🕐 Your To-do List</h1>
       <p>List of tasks you need to complete.</p>
-      <Button className="add-task-btn">
+      <Button className="add-task-btn" onClick={toggleAddTaskModal}>
         <i className="fas fa-plus" /> Add Task
       </Button>
     </div>

@@ -1,7 +1,13 @@
 import IconButton from "../IconButton/IconButton.jsx";
 import "./Modal.css";
 
-export default function Modal({ className, title, description, children }) {
+export default function Modal({
+  className,
+  title,
+  description,
+  children,
+  toggleModal
+}) {
   return (
     <div className="modal-backdrop">
       <div className={"modal-box" + (className ? ` ${className}` : "")}>
@@ -11,7 +17,7 @@ export default function Modal({ className, title, description, children }) {
             <p>{description}</p>
           </div>
           <div className="close">
-            <IconButton icon="fas fa-times" />
+            <IconButton icon="fas fa-times" onClick={toggleModal} />
           </div>
         </div>
         <div className="body">{children}</div>
