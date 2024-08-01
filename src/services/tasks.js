@@ -5,7 +5,7 @@ export default class Tasks {
   tasks = [];
 
   constructor() {
-    this.tasks = JSON.parse(localStorage.getItem("tasks"));
+    this.tasks = JSON.parse(localStorage.getItem("tasks")) || [];
   }
 
   getPendingTasks() {
