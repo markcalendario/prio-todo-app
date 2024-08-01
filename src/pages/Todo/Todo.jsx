@@ -1,21 +1,18 @@
 import BreadCrumb from "@/components/BreadCrumb/BreadCrumb.jsx";
 import Button from "@/components/Button/Button.jsx";
 import TaskCard from "@/components/TaskCard/TaskCard.jsx";
-import { Fragment } from "react";
 import "./Todo.css";
 
 function TodoPage() {
   return (
-    <Fragment>
-      <section id="todo">
-        <div className="container">
-          <div className="wrapper">
-            <Header />
-            <Tasks />
-          </div>
+    <section id="todo">
+      <div className="container">
+        <div className="wrapper">
+          <Header />
+          <Tasks />
         </div>
-      </section>
-    </Fragment>
+      </div>
+    </section>
   );
 }
 

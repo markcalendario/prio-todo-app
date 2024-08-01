@@ -8,9 +8,9 @@
 }
 
 *::-webkit-scrollbar-thumb:vertical {
-  background: var(--gray-4);
+  background: var(--gray-3);
 }
 
 *::-webkit-scrollbar-thumb:vertical:active {
-  background: rgba(0, 0, 0, 0.61);
+  background: var(--gray-4);
 }

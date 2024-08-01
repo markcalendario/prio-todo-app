@@ -19,6 +19,7 @@
   padding-top: 20px;
   position: sticky;
   top: 0;
+  z-index: 1;
 }
 
 .header > *:not(:first-child):not(:last-child) {
@@ -26,7 +27,7 @@
 }
 
 .header .add-task-btn {
-  background-color: var(--blue);
+  background-color: var(--primary-color);
   color: var(--gray-0);
 }
 
@@ -35,5 +36,9 @@
 .tasks {
   grid-area: tasks;
   padding: 20px;
-  background-color: var(--white);
+  background-color: var(--gray-1);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }

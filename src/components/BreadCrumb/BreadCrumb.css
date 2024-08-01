@@ -1,6 +1,8 @@
 .bread-crumb {
   display: flex;
   flex-wrap: wrap;
+  border: 1px var(--gray-2) solid;
+  background-color: white;
 }
 
 .bread-crumb button {
@@ -10,14 +12,15 @@
   cursor: pointer;
   font-weight: 500;
   transition: 0.1s ease;
+  background-color: var(--white);
 }
 
 .bread-crumb button:hover {
-  background-color: var(--gray-2);
+  background-color: var(--gray-1);
 }
 
 .bread-crumb button.active {
-  background-color: var(--primary-color);
+  background-color: var(--secondary-color);
   color: var(--white);
   font-weight: bold;
 }
