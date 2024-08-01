@@ -21,7 +21,7 @@ function TodoPage() {
 function Todo() {
   const [isVisible, toggleAddTaskModal] = useModal(false);
   const [taskType, setTaskType] = useState("pending");
-  const [tasks, setTasks] = useState([]);
+  const [tasks, setTasks] = useState(null);
 
   const fetchTasks = useCallback(() => {
     const task = new Tasks();
@@ -52,6 +52,8 @@ function Todo() {
   useEffect(() => {
     fetchTasks();
   }, [fetchTasks]);
+
+  if (!tasks) return;
 
   return (
     <Fragment>

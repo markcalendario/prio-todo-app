@@ -8,7 +8,7 @@ export default function TaskCard({
   absoluteTimestamp
 }) {
   return (
-    <div className="task-card">
+    <div className="task-card" data-aos="fade-up" data-aos-delay="100">
       <div className="context">
         <h1 className="title">{title}</h1>
         <p className="description">{description}</p>
