@@ -1,10 +1,12 @@
 import BreadCrumb from "@/components/BreadCrumb/BreadCrumb.jsx";
 import Button from "@/components/Button/Button.jsx";
+import EmptySection from "@/components/EmptySection/EmptySection.jsx";
 import AddTaskModal from "@/components/Modal/Collections/AddTaskModal/AddTaskModal.jsx";
 import Navbar from "@/components/Navbar/Navbar.jsx";
 import TaskCard from "@/components/TaskCard/TaskCard.jsx";
 import useModal from "@/hooks/useModal.jsx";
-import { Fragment } from "react";
+import Tasks from "@/services/tasks.js";
+import { Fragment, useCallback, useEffect, useState } from "react";
 import "./Todo.css";
 
 function TodoPage() {
@@ -18,6 +20,27 @@ function TodoPage() {
 
 function Todo() {
   const [isVisible, toggleAddTaskModal] = useModal(false);
+  const [taskType, setTaskType] = useState("pending");
+  const [tasks, setTasks] = useState([]);
+
+  const fetchTasks = useCallback(() => {
+    const task = new Tasks();
+
+    switch (taskType) {
+      case "pending":
+        setTasks(task.getPendingTasks());
+        break;
+      case "important":
+        setTasks(task.getImportantTasks());
+        break;
+      case "finished":
+        setTasks(task.getFinishedTasks());
+        break;
+      case "missing":
+        setTasks(task.getMissingTasks());
+        break;
+    }
+  }, [taskType]);
 
   const taskTabs = [
     { name: "Pending", value: "pending" },
@@ -26,9 +49,17 @@ function Todo() {
     { name: "Missing", value: "missing" }
   ];
 
+  useEffect(() => {
+    fetchTasks();
+  }, [fetchTasks]);
+
   return (
     <Fragment>
-      <AddTaskModal isVisible={isVisible} toggleModal={toggleAddTaskModal} />
+      <AddTaskModal
+        isVisible={isVisible}
+        toggleModal={toggleAddTaskModal}
+        onSuccess={fetchTasks}
+      />
       <section id="todo">
         <div className="container">
           <div className="wrapper">
@@ -36,9 +67,12 @@ function Todo() {
             <BreadCrumb
               initialActive={taskTabs[0].name}
               data={taskTabs}
-              handleSelect={() => {}}
+              handleSelect={(value) => {
+                setTaskType(value);
+                fetchTasks();
+              }}
             />
-            <Tasks />
+            <RenderTasks tasks={tasks} />
           </div>
         </div>
       </section>
@@ -58,26 +92,25 @@ function Header({ toggleAddTaskModal }) {
   );
 }
 
-function Tasks() {
-  return (
-    <div className="tasks">
+function RenderTasks({ tasks }) {
+  const renderTasks = () => {
+    return tasks.map((task) => (
       <TaskCard
-        title="Do assignments"
-        description="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque nam, est reiciendis."
-        absoluteTimestamp="An hour ago."
+        key={task.id}
+        title={task.title}
+        description={task.description}
+        absoluteTimestamp={task.targetDate}
       />
-      <TaskCard
-        title="Do assignments"
-        description="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque nam, est reiciendis."
-        absoluteTimestamp="An hour ago."
-      />
-      <TaskCard
-        title="Do assignments"
-        description="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque nam, est reiciendis."
-        absoluteTimestamp="An hour ago."
-      />
-    </div>
-  );
+    ));
+  };
+
+  if (!tasks.length) {
+    return (
+      <EmptySection title="Hooray!" description="Take some time to rest." />
+    );
+  }
+
+  return <div className="tasks">{renderTasks()}</div>;
 }
 
 export default TodoPage;

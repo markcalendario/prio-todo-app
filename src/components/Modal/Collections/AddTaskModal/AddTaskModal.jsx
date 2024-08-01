@@ -1,23 +1,25 @@
 import Button from "@/components/Button/Button.jsx";
 import Input from "@/components/Input/Input.jsx";
-import useTasks from "@/hooks/useTasks.jsx";
+import Tasks from "@/services/tasks.js";
 import { useState } from "react";
 import Modal from "../../Modal.jsx";
 import "./AddTaskModal.css";
 
-export default function AddTaskModal({ isVisible, toggleModal }) {
+export default function AddTaskModal({ isVisible, toggleModal, onSuccess }) {
   if (!isVisible) return;
 
-  const [_, createTask] = useTasks();
   const [newTaskData, setNewTaskData] = useState({
     title: "",
     description: "",
     target: ""
   });
 
-  const handleCreateTask = () => {
+  const handleCreatePendingTask = () => {
     const { title, description, target } = newTaskData;
-    createTask(title, description, target);
+    const task = new Tasks();
+    task.createPendingTask(title, description, target);
+    onSuccess();
+    toggleModal();
   };
 
   const handleInputChange = (evt) => {
@@ -58,7 +60,7 @@ export default function AddTaskModal({ isVisible, toggleModal }) {
         value={newTaskData.target}
       />
       <div className="buttons">
-        <Button className="create-btn" onClick={handleCreateTask}>
+        <Button className="create-btn" onClick={handleCreatePendingTask}>
           Create
         </Button>
         <Button className="create-as-important-btn">
