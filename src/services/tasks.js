@@ -14,7 +14,9 @@ export default class Tasks {
   }
 
   getImportantTasks() {
-    return this.tasks.filter((task) => task.isImportant === true);
+    return this.tasks.filter(
+      (task) => task.isImportant === true && task.status === "pending"
+    );
   }
 
   getFinishedTasks() {
@@ -93,6 +95,18 @@ export default class Tasks {
     for (const task of updatedTasks) {
       if (task.id === taskId) {
         task.status = "finished";
+      }
+    }
+
+    localStorage.setItem("tasks", JSON.stringify(updatedTasks));
+  }
+
+  setTaskPending(taskId) {
+    const updatedTasks = [...this.tasks];
+
+    for (const task of updatedTasks) {
+      if (task.id === taskId) {
+        task.status = "pending";
       }
     }
 

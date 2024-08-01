@@ -12,7 +12,8 @@ export default function TaskCard({
   status,
   targetDate,
   onDeleteSuccess,
-  onFinishSuccess
+  onFinishSuccess,
+  onSetToPendingSuccess
 }) {
   const [isDelTaskVisible, toggleIsDelTaskVisible] = useModal(false);
 
@@ -21,13 +22,19 @@ export default function TaskCard({
       return <IconButton icon="fas fa-check" onClick={handleSetTaskDone} />;
     }
 
-    return <IconButton icon="fas fa-redo" />;
+    return <IconButton icon="fas fa-redo" onClick={handleSetTaskPending} />;
   };
 
   const handleSetTaskDone = () => {
     const tasks = new Tasks();
     tasks.setTaskFinish(id);
     onFinishSuccess();
+  };
+
+  const handleSetTaskPending = () => {
+    const tasks = new Tasks();
+    tasks.setTaskPending(id);
+    onSetToPendingSuccess();
   };
 
   return (

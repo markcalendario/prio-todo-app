@@ -111,6 +111,7 @@ function RenderTasks({ tasks, fetchTasks }) {
         targetDate={task.targetDate}
         onDeleteSuccess={fetchTasks}
         onFinishSuccess={fetchTasks}
+        onSetToPendingSuccess={fetchTasks}
       />
     ));
   };
