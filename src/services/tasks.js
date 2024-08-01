@@ -1,3 +1,4 @@
+import { isDateInPast } from "@/utils/date.js";
 import dayjs from "dayjs";
 import { v4 as uuidv4 } from "uuid";
 
@@ -23,7 +24,7 @@ export default class Tasks {
   getMissingTasks() {
     return this.tasks.filter((task) => {
       const targetDate = dayjs(task.targetDate, "YYYY-MM-DD");
-      const isMissing = dayjs().isAfter(targetDate);
+      const isMissing = dayjs().isAfter(targetDate, "day");
       const isPending = task.status === "pending";
       return isMissing && isPending;
     });
@@ -32,6 +33,11 @@ export default class Tasks {
   createPendingTask(title, description, targetDate) {
     if (!title || !description || !targetDate) {
       alert("All fields are required.");
+      return false;
+    }
+
+    if (isDateInPast(targetDate)) {
+      alert("You cannot create task for past dates.");
       return false;
     }
 
@@ -53,6 +59,11 @@ export default class Tasks {
   createImportantTask(title, description, targetDate) {
     if (!title || !description || !targetDate) {
       alert("All fields are required.");
+      return false;
+    }
+
+    if (isDateInPast(targetDate)) {
+      alert("You cannot create task for past dates.");
       return false;
     }
 
