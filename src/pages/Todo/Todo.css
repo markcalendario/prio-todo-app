@@ -1,5 +1,5 @@
 #todo {
-  min-height: 100vh;
+  min-height: calc(100vh - 56px);
   background-color: var(--background-color);
 }
 
@@ -37,7 +37,6 @@
   grid-area: tasks;
   padding: 20px;
   background-color: var(--gray-1);
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   gap: 10px;

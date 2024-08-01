@@ -1,9 +1,20 @@
 import BreadCrumb from "@/components/BreadCrumb/BreadCrumb.jsx";
 import Button from "@/components/Button/Button.jsx";
+import Navbar from "@/components/Navbar/Navbar.jsx";
 import TaskCard from "@/components/TaskCard/TaskCard.jsx";
+import { Fragment } from "react";
 import "./Todo.css";
 
 function TodoPage() {
+  return (
+    <Fragment>
+      <Navbar />
+      <Todo />
+    </Fragment>
+  );
+}
+
+function Todo() {
   return (
     <section id="todo">
       <div className="container">
@@ -43,41 +54,6 @@ function Header() {
 function Tasks() {
   return (
     <div className="tasks">
-      <TaskCard
-        title="Do assignments"
-        description="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque nam, est reiciendis."
-        absoluteTimestamp="An hour ago."
-      />
-      <TaskCard
-        title="Do assignments"
-        description="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque nam, est reiciendis."
-        absoluteTimestamp="An hour ago."
-      />
-      <TaskCard
-        title="Do assignments"
-        description="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque nam, est reiciendis."
-        absoluteTimestamp="An hour ago."
-      />
-      <TaskCard
-        title="Do assignments"
-        description="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque nam, est reiciendis."
-        absoluteTimestamp="An hour ago."
-      />
-      <TaskCard
-        title="Do assignments"
-        description="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque nam, est reiciendis."
-        absoluteTimestamp="An hour ago."
-      />
-      <TaskCard
-        title="Do assignments"
-        description="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque nam, est reiciendis."
-        absoluteTimestamp="An hour ago."
-      />
-      <TaskCard
-        title="Do assignments"
-        description="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque nam, est reiciendis."
-        absoluteTimestamp="An hour ago."
-      />
       <TaskCard
         title="Do assignments"
         description="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque nam, est reiciendis."

@@ -9,6 +9,11 @@
   margin: auto;
 }
 
+.fluid-container {
+  width: 90%;
+  margin: auto;
+}
+
 @media screen and (min-width: 768px) {
   .container {
     max-width: 1000px;
