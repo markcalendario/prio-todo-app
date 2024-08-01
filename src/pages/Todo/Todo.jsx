@@ -19,7 +19,6 @@ function TodoPage() {
 }
 
 function Todo() {
-  const [isVisible, toggleAddTaskModal] = useModal(false);
   const [taskType, setTaskType] = useState("pending");
   const [tasks, setTasks] = useState(null);
 
@@ -62,15 +61,10 @@ function Todo() {
 
   return (
     <Fragment>
-      <AddTaskModal
-        isVisible={isVisible}
-        toggleModal={toggleAddTaskModal}
-        onSuccess={fetchTasks}
-      />
       <section id="todo">
         <div className="container">
           <div className="wrapper">
-            <Header toggleAddTaskModal={toggleAddTaskModal} />
+            <Header fetchTasks={fetchTasks} />
             <BreadCrumb
               initialActive={taskTabs[0].name}
               data={taskTabs}
@@ -84,15 +78,24 @@ function Todo() {
   );
 }
 
-function Header({ toggleAddTaskModal }) {
+function Header({ fetchTasks }) {
+  const [isVisible, toggleAddTaskModal] = useModal(false);
+
   return (
-    <div className="header">
-      <h1>🕐 Your To-do List</h1>
-      <p>List of tasks you need to complete.</p>
-      <Button className="add-task-btn" onClick={toggleAddTaskModal}>
-        <i className="fas fa-plus" /> Add Task
-      </Button>
-    </div>
+    <Fragment>
+      <AddTaskModal
+        isVisible={isVisible}
+        toggleModal={toggleAddTaskModal}
+        onSuccess={fetchTasks}
+      />
+      <div className="header">
+        <h1>🕐 Your To-do List</h1>
+        <p>List of tasks you need to complete.</p>
+        <Button className="add-task-btn" onClick={toggleAddTaskModal}>
+          <i className="fas fa-plus" /> Add Task
+        </Button>
+      </div>
+    </Fragment>
   );
 }
 
