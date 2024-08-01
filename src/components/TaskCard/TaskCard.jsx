@@ -5,19 +5,30 @@ export default function TaskCard({
   id,
   title,
   description,
-  absoluteTimestamp
+  status,
+  targetDate
 }) {
+  const renderStatusBasedOptions = () => {
+    if (status === "pending") {
+      return <IconButton icon="fas fa-check" />;
+    }
+
+    return <IconButton icon="fas fa-redo" />;
+  };
+
   return (
     <div className="task-card" data-aos="fade-up" data-aos-delay="100">
       <div className="context">
-        <h1 className="title">{title}</h1>
+        <h1 className={"title" + (status === "finished" ? ` strike` : "")}>
+          {title}
+        </h1>
         <p className="description">{description}</p>
-        <p className="date">{absoluteTimestamp}</p>
+        <p className="date">{targetDate}</p>
       </div>
       <div className="options">
-        <IconButton icon="fas fa-check" />
         <IconButton icon="fas fa-pen-to-square" />
-        <IconButton icon="fas fa-times" />
+        {renderStatusBasedOptions()}
+        <IconButton icon="fas fa-times" onClick={handleDeleteTask} />
       </div>
     </div>
   );

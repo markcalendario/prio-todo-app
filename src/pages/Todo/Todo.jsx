@@ -101,7 +101,8 @@ function RenderTasks({ tasks }) {
         key={task.id}
         title={task.title}
         description={task.description}
-        absoluteTimestamp={task.targetDate}
+        status={task.status}
+        targetDate={task.targetDate}
       />
     ));
   };

@@ -20,6 +20,11 @@
   font-weight: 600;
 }
 
+.task-card .context .title.strike {
+  text-decoration: line-through;
+  color: var(--gray-6);
+}
+
 .task-card .context .description {
   color: var(--gray-6);
   max-width: 800px;
