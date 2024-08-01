@@ -5,6 +5,7 @@ export default function Input({
   name,
   value,
   type,
+  onChange,
   defaultValue,
   placeholder
 }) {
@@ -16,6 +17,7 @@ export default function Input({
         name={name}
         value={value}
         defaultValue={defaultValue}
+        onChange={onChange}
         type={type}
       />
     </div>
