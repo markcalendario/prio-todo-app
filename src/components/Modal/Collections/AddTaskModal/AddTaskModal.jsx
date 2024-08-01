@@ -25,6 +25,17 @@ export default function AddTaskModal({ isVisible, toggleModal, onSuccess }) {
     }
   };
 
+  const handleCreateImportantTask = () => {
+    const { title, description, target } = newTaskData;
+    const task = new Tasks();
+    const isCreated = task.createImportantTask(title, description, target);
+
+    if (isCreated) {
+      onSuccess();
+      toggleModal();
+    }
+  };
+
   const handleInputChange = (evt) => {
     const { name, value } = evt.target;
 
@@ -66,8 +77,10 @@ export default function AddTaskModal({ isVisible, toggleModal, onSuccess }) {
         <Button className="create-btn" onClick={handleCreatePendingTask}>
           Create
         </Button>
-        <Button className="create-as-important-btn">
-          <i className="fas fa-star"></i> Create as Important
+        <Button
+          className="create-as-important-btn"
+          onClick={handleCreateImportantTask}>
+          <i className="fas fa-star" /> Create as Important
         </Button>
       </div>
     </Modal>

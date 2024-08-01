@@ -49,4 +49,25 @@ export default class Tasks {
     localStorage.setItem("tasks", updatedTasks);
     return true;
   }
+
+  createImportantTask(title, description, targetDate) {
+    if (!title || !description || !targetDate) {
+      alert("All fields are required.");
+      return false;
+    }
+
+    const newTask = {
+      id: uuidv4(),
+      creationTimestamp: dayjs().format("YYYY-MM-DD"),
+      title: title,
+      description: description,
+      targetDate: targetDate,
+      isImportant: true,
+      status: "pending"
+    };
+
+    const updatedTasks = JSON.stringify([...this.tasks, newTask]);
+    localStorage.setItem("tasks", updatedTasks);
+    return true;
+  }
 }
