@@ -1,0 +1,16 @@
+.add-task-modal .buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.add-task-modal .buttons button {
+  color: var(--gray-0);
+}
+
+.add-task-modal .buttons .create-btn {
+  background-color: var(--primary-color);
+}
+
+.add-task-modal .buttons .create-as-important-btn {
+  background-color: var(--secondary-color);
+}

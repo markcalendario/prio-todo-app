@@ -1,5 +1,6 @@
 import BreadCrumb from "@/components/BreadCrumb/BreadCrumb.jsx";
 import Button from "@/components/Button/Button.jsx";
+import AddTaskModal from "@/components/Modal/Collections/AddTaskModal/AddTaskModal.jsx";
 import Navbar from "@/components/Navbar/Navbar.jsx";
 import TaskCard from "@/components/TaskCard/TaskCard.jsx";
 import { Fragment } from "react";
@@ -23,19 +24,22 @@ function Todo() {
   ];
 
   return (
-    <section id="todo">
-      <div className="container">
-        <div className="wrapper">
-          <Header />
-          <BreadCrumb
-            initialActive={taskTabs[0].name}
-            data={taskTabs}
-            handleSelect={() => {}}
-          />
-          <Tasks />
+    <Fragment>
+      <AddTaskModal />
+      <section id="todo">
+        <div className="container">
+          <div className="wrapper">
+            <Header />
+            <BreadCrumb
+              initialActive={taskTabs[0].name}
+              data={taskTabs}
+              handleSelect={() => {}}
+            />
+            <Tasks />
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </Fragment>
   );
 }
 
