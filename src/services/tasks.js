@@ -30,6 +30,11 @@ export default class Tasks {
   }
 
   createPendingTask(title, description, targetDate) {
+    if (!title || !description || !targetDate) {
+      alert("All fields are required.");
+      return false;
+    }
+
     const newTask = {
       id: uuidv4(),
       creationTimestamp: dayjs().format("YYYY-MM-DD"),
@@ -42,5 +47,6 @@ export default class Tasks {
 
     const updatedTasks = JSON.stringify([...this.tasks, newTask]);
     localStorage.setItem("tasks", updatedTasks);
+    return true;
   }
 }

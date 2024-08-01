@@ -37,8 +37,7 @@
     flex-wrap: wrap;
   }
 
-  .tasks > * {
-    width: calc((100% - (10px * 2)) / 3);
-    flex: 1;
+  .tasks .task-card {
+    width: calc((100% - (10px * 1)) / 2);
   }
 }

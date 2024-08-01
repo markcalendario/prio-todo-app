@@ -17,9 +17,12 @@ export default function AddTaskModal({ isVisible, toggleModal, onSuccess }) {
   const handleCreatePendingTask = () => {
     const { title, description, target } = newTaskData;
     const task = new Tasks();
-    task.createPendingTask(title, description, target);
-    onSuccess();
-    toggleModal();
+    const isCreated = task.createPendingTask(title, description, target);
+
+    if (isCreated) {
+      onSuccess();
+      toggleModal();
+    }
   };
 
   const handleInputChange = (evt) => {
