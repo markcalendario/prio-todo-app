@@ -15,19 +15,6 @@ function TodoPage() {
 }
 
 function Todo() {
-  return (
-    <section id="todo">
-      <div className="container">
-        <div className="wrapper">
-          <Header />
-          <Tasks />
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function Header() {
   const taskTabs = [
     { name: "Pending", value: "pending" },
     { name: "Important", value: "important" },
@@ -36,17 +23,30 @@ function Header() {
   ];
 
   return (
+    <section id="todo">
+      <div className="container">
+        <div className="wrapper">
+          <Header />
+          <BreadCrumb
+            initialActive={taskTabs[0].name}
+            data={taskTabs}
+            handleSelect={() => {}}
+          />
+          <Tasks />
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Header() {
+  return (
     <div className="header">
       <h1>🕐 Your To-do List</h1>
       <p>List of tasks you need to complete.</p>
       <Button className="add-task-btn">
         <i className="fas fa-plus" /> Add Task
       </Button>
-      <BreadCrumb
-        initialActive={taskTabs[0].name}
-        data={taskTabs}
-        handleSelect={() => {}}
-      />
     </div>
   );
 }

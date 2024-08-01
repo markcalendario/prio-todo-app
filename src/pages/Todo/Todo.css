@@ -1,29 +1,19 @@
 #todo {
-  min-height: calc(100vh - 56px);
-  background-color: var(--background-color);
+  min-height: calc(100vh - 49px);
+  background-color: var(--gray-1);
+  padding: 20px 0;
 }
 
 #todo .container .wrapper {
-  display: grid;
-  grid-template-areas:
-    "header"
-    "tasks";
-  grid-template-columns: auto;
-  grid-template-rows: auto 1fr;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 /* Header */
 
-.header {
-  background-color: var(--background-color);
-  padding-top: 20px;
-  position: sticky;
-  top: 0;
-  z-index: 1;
-}
-
 .header > *:not(:first-child):not(:last-child) {
-  margin: 7px 0;
+  margin: 10px 0;
 }
 
 .header .add-task-btn {
@@ -34,10 +24,21 @@
 /* Tasks */
 
 .tasks {
-  grid-area: tasks;
   padding: 20px;
-  background-color: var(--gray-1);
   display: flex;
   flex-direction: column;
   gap: 10px;
+  background-color: var(--gray-2);
+}
+
+@media screen and (min-width: 768px) {
+  .tasks {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .tasks > * {
+    width: calc((100% - (10px * 2)) / 3);
+    flex: 1;
+  }
 }
