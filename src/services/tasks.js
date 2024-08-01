@@ -83,9 +83,19 @@ export default class Tasks {
   }
 
   deleteTask(taskId) {
-    console.log(taskId);
     const updatedTasks = this.tasks.filter((task) => task.id !== taskId);
-    console.log(updatedTasks);
+    localStorage.setItem("tasks", JSON.stringify(updatedTasks));
+  }
+
+  setTaskFinish(taskId) {
+    const updatedTasks = [...this.tasks];
+
+    for (const task of updatedTasks) {
+      if (task.id === taskId) {
+        task.status = "finished";
+      }
+    }
+
     localStorage.setItem("tasks", JSON.stringify(updatedTasks));
   }
 }

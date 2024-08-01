@@ -1,4 +1,5 @@
 import useModal from "@/hooks/useModal.jsx";
+import Tasks from "@/services/tasks.js";
 import { Fragment } from "react";
 import IconButton from "../IconButton/IconButton.jsx";
 import DeleteTaskModal from "../Modal/Collections/DeleteTaskModal/DeleteTaskModal.jsx";
@@ -10,15 +11,23 @@ export default function TaskCard({
   description,
   status,
   targetDate,
-  onDeleteSuccess
+  onDeleteSuccess,
+  onFinishSuccess
 }) {
   const [isDelTaskVisible, toggleIsDelTaskVisible] = useModal(false);
+
   const renderStatusBasedOptions = () => {
     if (status === "pending") {
-      return <IconButton icon="fas fa-check" />;
+      return <IconButton icon="fas fa-check" onClick={handleSetTaskDone} />;
     }
 
     return <IconButton icon="fas fa-redo" />;
+  };
+
+  const handleSetTaskDone = () => {
+    const tasks = new Tasks();
+    tasks.setTaskFinish(id);
+    onFinishSuccess();
   };
 
   return (
@@ -29,6 +38,7 @@ export default function TaskCard({
         toggleModal={toggleIsDelTaskVisible}
         onSuccess={onDeleteSuccess}
       />
+
       <div className="task-card" data-aos="fade-up" data-aos-delay="100">
         <div className="context">
           <h1 className={"title" + (status === "finished" ? ` strike` : "")}>
