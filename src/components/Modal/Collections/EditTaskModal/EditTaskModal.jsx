@@ -1,4 +1,5 @@
 import Button from "@/components/Button/Button.jsx";
+import Checkbox from "@/components/Checkbox/Checkbox.jsx";
 import Input from "@/components/Input/Input.jsx";
 import Tasks from "@/services/tasks.js";
 import { useState } from "react";
@@ -74,15 +75,13 @@ export default function EditTaskModal({
         value={taskData.targetDate}
       />
       <div className="checkbox-container">
-        <label>
-          <input
-            type="checkbox"
-            name="isImportant"
-            checked={taskData.isImportant}
-            onChange={handleInputChange}
-          />{" "}
-          Important
-        </label>
+        <Checkbox
+          id="important"
+          label="Important"
+          name="isImportant"
+          checked={taskData.isImportant}
+          onChange={handleInputChange}
+        />
       </div>
       <div className="buttons">
         <Button className="update-btn" onClick={handleUpdateTask}>
