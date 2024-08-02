@@ -1,0 +1,4 @@
+.add-task-bar .add-task-btn {
+  background-color: var(--primary-color);
+  color: var(--gray-0);
+}
