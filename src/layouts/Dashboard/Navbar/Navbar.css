@@ -5,7 +5,7 @@
   z-index: 1;
 
   padding: 10px;
-  background-color: var(--white);
+  background-color: var(--primary-color);
 }
 
 .navbar .fluid-container {
@@ -15,6 +15,14 @@
 }
 
 .navbar .fluid-container .brand h1 {
-  color: var(--primary-color);
+  color: var(--white);
   font-weight: 900;
+}
+
+.navbar .fluid-container .hamburger .icon-button {
+  color: var(--white);
+}
+
+.navbar .fluid-container .hamburger .icon-button:hover {
+  background-color: transparent;
 }
