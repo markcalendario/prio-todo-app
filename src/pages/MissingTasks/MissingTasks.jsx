@@ -5,6 +5,7 @@ import Dashboard from "@/layouts/Dashboard/Dashboard.jsx";
 import Main from "@/layouts/Dashboard/Main/Main.jsx";
 import Tasks from "@/services/tasks.js";
 import { useCallback, useEffect, useState } from "react";
+import "./MissingTasks.css";
 
 export default function MissingTasks() {
   const [missingTasks, setMissingTasks] = useState([]);
@@ -49,7 +50,7 @@ export default function MissingTasks() {
         <Content
           title="Missing Tasks"
           description="List of tasks you're missing.">
-          {renderMissingTasks()}
+          <div className="tasks-list">{renderMissingTasks()}</div>
         </Content>
       </Main>
     </Dashboard>

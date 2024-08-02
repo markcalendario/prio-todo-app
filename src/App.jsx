@@ -2,7 +2,7 @@ import Aos from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import FinishedTasks from "./pages/FinishedTasks/ImportantTasks.jsx";
+import FinishedTasks from "./pages/FinishedTasks/FinishedTasks.jsx";
 import ImportantTasks from "./pages/ImportantTasks/ImportantTasks.jsx";
 import MissingTasks from "./pages/MissingTasks/MissingTasks.jsx";
 import PendingTasks from "./pages/PendingTasks/PendingTasks.jsx";

@@ -1,3 +1,4 @@
+import AddTaskBar from "@/components/AddTaskBar/AddTaskBar.jsx";
 import EmptySection from "@/components/EmptySection/EmptySection.jsx";
 import TaskCard from "@/components/TaskCard/TaskCard.jsx";
 import Content from "@/layouts/Dashboard/Content/Content.jsx";
@@ -5,6 +6,7 @@ import Dashboard from "@/layouts/Dashboard/Dashboard.jsx";
 import Main from "@/layouts/Dashboard/Main/Main.jsx";
 import Tasks from "@/services/tasks.js";
 import { useCallback, useEffect, useState } from "react";
+import "./ImportantTasks.css";
 
 export default function ImportantTasks() {
   const [importantTasks, setImportantTasks] = useState([]);
@@ -49,7 +51,8 @@ export default function ImportantTasks() {
         <Content
           title="Important Tasks"
           description="List of important tasks you need to accomplish.">
-          {renderImportantTasks()}
+          <AddTaskBar onSuccess={fetchImportantTasks} />
+          <div className="tasks-list">{renderImportantTasks()}</div>
         </Content>
       </Main>
     </Dashboard>

@@ -5,6 +5,7 @@ import Dashboard from "@/layouts/Dashboard/Dashboard.jsx";
 import Main from "@/layouts/Dashboard/Main/Main.jsx";
 import Tasks from "@/services/tasks.js";
 import { useCallback, useEffect, useState } from "react";
+import "./FinishedTasks.css";
 
 export default function FinishedTasks() {
   const [finishedTasks, setFinishedTasks] = useState([]);
@@ -52,7 +53,7 @@ export default function FinishedTasks() {
         <Content
           title="Finished Tasks"
           description="List of tasks you finished.">
-          {renderFinishedTasks()}
+          <div className="tasks-list">{renderFinishedTasks()}</div>
         </Content>
       </Main>
     </Dashboard>
