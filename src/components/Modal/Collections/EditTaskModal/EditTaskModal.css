@@ -1,16 +1,12 @@
-.add-task-modal .buttons {
+.edit-task-modal .buttons {
   display: flex;
   gap: 10px;
 }
 
-.add-task-modal .buttons button {
+.edit-task-modal .buttons button {
   color: var(--gray-0);
 }
 
-.add-task-modal .buttons .create-btn {
-  background-color: var(--primary-color);
-}
-
-.add-task-modal .buttons .create-as-important-btn {
+.edit-task-modal .buttons .edit-btn {
   background-color: var(--secondary-color);
 }

@@ -84,7 +84,7 @@ export default function EditTaskModal({
         />
       </div>
       <div className="buttons">
-        <Button className="update-btn" onClick={handleUpdateTask}>
+        <Button className="edit-btn" onClick={handleUpdateTask}>
           Update
         </Button>
       </div>
