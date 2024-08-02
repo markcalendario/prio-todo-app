@@ -15,6 +15,10 @@
   .task-card {
     flex-wrap: wrap;
   }
+
+  .task-card .context {
+    width: 100%;
+  }
 }
 
 .task-card:hover {

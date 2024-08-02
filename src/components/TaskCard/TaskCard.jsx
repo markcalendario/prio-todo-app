@@ -3,6 +3,7 @@ import Tasks from "@/services/tasks.js";
 import { Fragment } from "react";
 import IconButton from "../IconButton/IconButton.jsx";
 import DeleteTaskModal from "../Modal/Collections/DeleteTaskModal/DeleteTaskModal.jsx";
+import EditTaskModal from "../Modal/Collections/EditTaskModal/EditTaskModal.jsx";
 import "./TaskCard.css";
 
 export default function TaskCard({
@@ -11,11 +12,13 @@ export default function TaskCard({
   description,
   status,
   targetDate,
+  isImportant,
   onDeleteSuccess,
   onFinishSuccess,
   onSetToPendingSuccess
 }) {
   const [isDelTaskVisible, toggleIsDelTaskVisible] = useModal(false);
+  const [isEditTaskVisible, toggleIsEditTaskVisible] = useModal(false);
 
   const renderStatusBasedOptions = () => {
     if (status === "pending") {
@@ -46,6 +49,19 @@ export default function TaskCard({
         onSuccess={onDeleteSuccess}
       />
 
+      <EditTaskModal
+        isVisible={isEditTaskVisible}
+        toggleModal={toggleIsEditTaskVisible}
+        onSuccess={onDeleteSuccess}
+        taskData={{
+          id: id,
+          title: title,
+          description: description,
+          targetDate: targetDate,
+          isImportant: isImportant
+        }}
+      />
+
       <div className="task-card" data-aos="fade-up" data-aos-delay="100">
         <div className="context">
           <h1 className={"title" + (status === "finished" ? ` strike` : "")}>
@@ -55,7 +71,10 @@ export default function TaskCard({
           <p className="date">{targetDate}</p>
         </div>
         <div className="options">
-          <IconButton icon="fas fa-pen-to-square" />
+          <IconButton
+            icon="fas fa-pen-to-square"
+            onClick={toggleIsEditTaskVisible}
+          />
           {renderStatusBasedOptions()}
           <IconButton icon="fas fa-times" onClick={toggleIsDelTaskVisible} />
         </div>

@@ -32,6 +32,7 @@ export default function MissingTasks() {
         description={task.description}
         status={task.status}
         targetDate={task.targetDate}
+        isImportant={task.isImportant}
         onEditSuccess={fetchMissingTasks}
         onSetToPendingSuccess={fetchMissingTasks}
         onDeleteSuccess={fetchMissingTasks}

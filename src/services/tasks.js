@@ -84,11 +84,6 @@ export default class Tasks {
     return true;
   }
 
-  deleteTask(taskId) {
-    const updatedTasks = this.tasks.filter((task) => task.id !== taskId);
-    localStorage.setItem("tasks", JSON.stringify(updatedTasks));
-  }
-
   setTaskFinish(taskId) {
     const updatedTasks = [...this.tasks];
 
@@ -111,5 +106,57 @@ export default class Tasks {
     }
 
     localStorage.setItem("tasks", JSON.stringify(updatedTasks));
+  }
+
+  deleteTask(taskId) {
+    const updatedTasks = this.tasks.filter((task) => task.id !== taskId);
+    localStorage.setItem("tasks", JSON.stringify(updatedTasks));
+  }
+
+  editTask(
+    targetTaskId,
+    newTitle,
+    newDescription,
+    newTargetDate,
+    newIsImportant
+  ) {
+    // Validation
+    if (
+      !newTitle ||
+      !newDescription ||
+      !newTargetDate ||
+      typeof newIsImportant !== "boolean"
+    ) {
+      alert("All fields are required.");
+      return false;
+    }
+
+    // Past date validation
+    if (isDateInPast(newTargetDate)) {
+      alert("You cannot set this task for past dates.");
+      return false;
+    }
+
+    // Task existence validation
+    const taskIndex = this.tasks.findIndex((task) => task.id === targetTaskId);
+
+    if (taskIndex === -1) {
+      alert("Task not found.");
+      return false;
+    }
+
+    // Updating
+    const updatedTasks = [...this.tasks];
+
+    updatedTasks[taskIndex] = {
+      ...updatedTasks[taskIndex],
+      title: newTitle,
+      description: newDescription,
+      targetDate: newTargetDate,
+      isImportant: newIsImportant
+    };
+
+    localStorage.setItem("tasks", JSON.stringify(updatedTasks));
+    return true;
   }
 }
