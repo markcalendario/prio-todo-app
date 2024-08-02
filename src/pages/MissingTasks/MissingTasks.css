@@ -12,6 +12,6 @@
   }
 
   .tasks-list .task-card {
-    width: calc((100% - (10px * 2)) / 3);
+    width: calc((100% - (10px * 1)) / 2);
   }
 }
