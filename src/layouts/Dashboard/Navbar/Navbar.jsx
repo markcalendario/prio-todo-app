@@ -1,18 +1,7 @@
 import IconButton from "@/components/IconButton/IconButton.jsx";
 import "./Navbar.css";
 
-export default function Navbar() {
-  const toggleSidebarVisibility = () => {
-    const sidebar = document.getElementById("dashboard-sidebar");
-    const isVisible = sidebar.style.display !== "none";
-
-    if (isVisible) {
-      sidebar.style.display = "none";
-    } else {
-      sidebar.style.display = "flex";
-    }
-  };
-
+export default function Navbar({ toggleSidebarVisibility }) {
   return (
     <nav className="navbar">
       <div className="fluid-container">
