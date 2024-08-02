@@ -6,27 +6,24 @@ import Main from "@/layouts/Dashboard/Main/Main.jsx";
 import Tasks from "@/services/tasks.js";
 import { useCallback, useEffect, useState } from "react";
 
-export default function FinishedTasks() {
-  const [finishedTasks, setFinishedTasks] = useState([]);
+export default function MissingTasks() {
+  const [missingTasks, setMissingTasks] = useState([]);
 
-  const fetchFinishedTasks = useCallback(() => {
+  const fetchMissingTasks = useCallback(() => {
     const tasks = new Tasks();
-    const finished = tasks.getFinishedTasks();
+    const missing = tasks.getMissingTasks();
 
-    setFinishedTasks(finished);
+    setMissingTasks(missing);
   }, []);
 
-  const renderFinishedTasks = () => {
-    if (!finishedTasks.length) {
+  const renderMissingTasks = () => {
+    if (!missingTasks.length) {
       return (
-        <EmptySection
-          title="Nothing to show here."
-          description="Check your pending tasks."
-        />
+        <EmptySection title="Great!" description="You have no missing tasks." />
       );
     }
 
-    return finishedTasks.map((task) => (
+    return missingTasks.map((task) => (
       <TaskCard
         key={task.id}
         id={task.id}
@@ -34,25 +31,25 @@ export default function FinishedTasks() {
         description={task.description}
         status={task.status}
         targetDate={task.targetDate}
-        onEditSuccess={fetchFinishedTasks}
-        onSetToPendingSuccess={fetchFinishedTasks}
-        onDeleteSuccess={fetchFinishedTasks}
-        onFinishSuccess={fetchFinishedTasks}
+        onEditSuccess={fetchMissingTasks}
+        onSetToPendingSuccess={fetchMissingTasks}
+        onDeleteSuccess={fetchMissingTasks}
+        onFinishSuccess={fetchMissingTasks}
       />
     ));
   };
 
   useEffect(() => {
-    fetchFinishedTasks();
-  }, [fetchFinishedTasks]);
+    fetchMissingTasks();
+  }, [fetchMissingTasks]);
 
   return (
     <Dashboard>
       <Main>
         <Content
-          title="Finished Tasks"
-          description="List of tasks you finished.">
-          {renderFinishedTasks()}
+          title="Missing Tasks"
+          description="List of tasks you're missing.">
+          {renderMissingTasks()}
         </Content>
       </Main>
     </Dashboard>

@@ -25,14 +25,16 @@ export default function PendingTasks() {
 
     return pendingTasks.map((task) => (
       <TaskCard
+        key={task.id}
         id={task.id}
         title={task.title}
         description={task.description}
         status={task.status}
         targetDate={task.targetDate}
+        onEditSuccess={fetchPendingTasks}
+        onSetToPendingSuccess={fetchPendingTasks}
         onDeleteSuccess={fetchPendingTasks}
         onFinishSuccess={fetchPendingTasks}
-        onSetToPendingSuccess={fetchPendingTasks}
       />
     ));
   };

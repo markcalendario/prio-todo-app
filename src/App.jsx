@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import FinishedTasks from "./pages/FinishedTasks/ImportantTasks.jsx";
 import ImportantTasks from "./pages/ImportantTasks/ImportantTasks.jsx";
+import MissingTasks from "./pages/MissingTasks/MissingTasks.jsx";
 import PendingTasks from "./pages/PendingTasks/PendingTasks.jsx";
 import "./styles/main.css";
 
@@ -20,6 +21,10 @@ export default function App() {
     {
       path: "/finished",
       element: <FinishedTasks />
+    },
+    {
+      path: "/missing",
+      element: <MissingTasks />
     }
   ]);
 
