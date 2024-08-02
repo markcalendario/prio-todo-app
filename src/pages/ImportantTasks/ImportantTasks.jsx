@@ -6,48 +6,48 @@ import Main from "@/layouts/Dashboard/Main/Main.jsx";
 import Tasks from "@/services/tasks.js";
 import { useCallback, useEffect, useState } from "react";
 
-export default function PendingTasks() {
-  const [pendingTasks, setPendingTasks] = useState([]);
+export default function ImportantTasks() {
+  const [importantTasks, setImportantTasks] = useState([]);
 
-  const fetchPendingTasks = useCallback(() => {
+  const fetchImportantTasks = useCallback(() => {
     const tasks = new Tasks();
-    const pending = tasks.getPendingTasks();
+    const important = tasks.getImportantTasks();
 
-    setPendingTasks(pending);
+    setImportantTasks(important);
   }, []);
 
-  const renderPendingTasks = () => {
-    if (!pendingTasks.length) {
+  const renderImportantTasks = () => {
+    if (!importantTasks.length) {
       return (
         <EmptySection title="Wohoo!" description="Take some time to rest." />
       );
     }
 
-    return pendingTasks.map((task) => (
+    return importantTasks.map((task) => (
       <TaskCard
         id={task.id}
         title={task.title}
         description={task.description}
         status={task.status}
         targetDate={task.targetDate}
-        onDeleteSuccess={fetchPendingTasks}
-        onFinishSuccess={fetchPendingTasks}
-        onSetToPendingSuccess={fetchPendingTasks}
+        onDeleteSuccess={fetchImportantTasks}
+        onFinishSuccess={fetchImportantTasks}
+        onSetToImportantSuccess={fetchImportantTasks}
       />
     ));
   };
 
   useEffect(() => {
-    fetchPendingTasks();
-  }, [fetchPendingTasks]);
+    fetchImportantTasks();
+  }, [fetchImportantTasks]);
 
   return (
     <Dashboard>
       <Main>
         <Content
-          title="Pending Tasks"
-          description="List of tasks you need to finish.">
-          {renderPendingTasks()}
+          title="Important Tasks"
+          description="List of important tasks you need to accomplish.">
+          {renderImportantTasks()}
         </Content>
       </Main>
     </Dashboard>
