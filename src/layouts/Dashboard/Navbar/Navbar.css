@@ -1,0 +1,19 @@
+.navbar {
+  grid-area: navbar;
+  position: sticky;
+  top: 0;
+
+  padding: 10px;
+  background-color: var(--white);
+}
+
+.navbar .fluid-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar .fluid-container .brand h1 {
+  color: var(--primary-color);
+  font-weight: 900;
+}

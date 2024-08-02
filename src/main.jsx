@@ -2,7 +2,7 @@ import Aos from "aos";
 import "aos/dist/aos.css";
 import React, { useEffect } from "react";
 import ReactDOM from "react-dom/client";
-import TodoPage from "./pages/Todo/Todo.jsx";
+import Todo from "./pages/Todo/Todo.jsx";
 import "./styles/main.css";
 
 function App() {
@@ -10,7 +10,7 @@ function App() {
     Aos.init();
   }, []);
 
-  return <TodoPage />;
+  return <Todo />;
 }
 
 ReactDOM.createRoot(document.getElementById("root")).render(

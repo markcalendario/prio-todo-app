@@ -1,0 +1,42 @@
+.sidebar {
+  background-color: var(--white);
+
+  grid-area: sidebar;
+  height: calc(100vh - 46px);
+  position: fixed;
+  top: 46px; /* Height of Navbar */
+
+  overflow: auto;
+  width: 250px;
+  padding: 20px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.sidebar .label {
+  font-weight: bold;
+  color: var(--gray-7);
+}
+
+@media screen and (min-width: 768px) {
+  .sidebar {
+    position: sticky;
+    width: auto;
+  }
+
+  .sidebar .label {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .sidebar {
+    width: 250px;
+  }
+
+  .sidebar .label {
+    display: block;
+  }
+}

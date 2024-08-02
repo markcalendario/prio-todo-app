@@ -1,0 +1,18 @@
+.dashboard {
+  display: grid;
+  grid-template-areas:
+    "navbar"
+    "content";
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr;
+}
+
+@media screen and (min-width: 768px) {
+  .dashboard {
+    grid-template-areas:
+      "navbar navbar"
+      "sidebar content";
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto 1fr;
+  }
+}
