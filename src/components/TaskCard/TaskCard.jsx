@@ -1,5 +1,6 @@
 import useModal from "@/hooks/useModal.jsx";
 import Tasks from "@/services/tasks.js";
+import { getRelativeDate, getRelativeDateTimeFromUnix } from "@/utils/date.js";
 import { Fragment } from "react";
 import IconButton from "../IconButton/IconButton.jsx";
 import DeleteTaskModal from "../Modal/Collections/DeleteTaskModal/DeleteTaskModal.jsx";
@@ -12,6 +13,7 @@ export default function TaskCard({
   description,
   status,
   targetDate,
+  createdTimestamp,
   isImportant,
   onDeleteSuccess,
   onFinishSuccess,
@@ -64,11 +66,14 @@ export default function TaskCard({
 
       <div className="task-card" data-aos="fade-up" data-aos-delay="100">
         <div className="context">
+          <p className="target-time">{getRelativeDate(targetDate)}</p>
           <h1 className={"title" + (status === "finished" ? ` strike` : "")}>
             {title}
           </h1>
           <p className="description">{description}</p>
-          <p className="date">{targetDate}</p>
+          <p className="posted-time">
+            {getRelativeDateTimeFromUnix(createdTimestamp)}
+          </p>
         </div>
         <div className="options">
           <IconButton

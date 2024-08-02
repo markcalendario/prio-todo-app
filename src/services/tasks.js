@@ -45,7 +45,7 @@ export default class Tasks {
 
     const newTask = {
       id: uuidv4(),
-      creationTimestamp: dayjs().format("YYYY-MM-DD"),
+      createdTimestamp: dayjs().unix(),
       title: title,
       description: description,
       targetDate: targetDate,
@@ -71,7 +71,7 @@ export default class Tasks {
 
     const newTask = {
       id: uuidv4(),
-      creationTimestamp: dayjs().format("YYYY-MM-DD"),
+      createdTimestamp: dayjs().unix(),
       title: title,
       description: description,
       targetDate: targetDate,

@@ -33,6 +33,7 @@ export default function PendingTasks() {
         description={task.description}
         status={task.status}
         targetDate={task.targetDate}
+        createdTimestamp={task.createdTimestamp}
         isImportant={task.isImportant}
         onEditSuccess={fetchPendingTasks}
         onSetToPendingSuccess={fetchPendingTasks}
