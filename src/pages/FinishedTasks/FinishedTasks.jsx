@@ -35,6 +35,7 @@ export default function FinishedTasks() {
         description={task.description}
         status={task.status}
         targetDate={task.targetDate}
+        createdTimestamp={task.createdTimestamp}
         isImportant={task.isImportant}
         onEditSuccess={fetchFinishedTasks}
         onSetToPendingSuccess={fetchFinishedTasks}

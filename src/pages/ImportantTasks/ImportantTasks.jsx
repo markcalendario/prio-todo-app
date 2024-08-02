@@ -33,6 +33,7 @@ export default function ImportantTasks() {
         description={task.description}
         status={task.status}
         targetDate={task.targetDate}
+        createdTimestamp={task.createdTimestamp}
         isImportant={task.isImportant}
         onEditSuccess={fetchImportantTasks}
         onSetToPendingSuccess={fetchImportantTasks}
