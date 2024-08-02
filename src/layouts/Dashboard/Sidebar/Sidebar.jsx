@@ -17,11 +17,13 @@ export default function Sidebar() {
         href="https://markkennethcalendario.web.app"
         icon="fas fa-link"
         text="Portfolio"
+        target="_blank"
       />
       <SidebarLink
-        href="https://markkennethcalendario.web.app"
+        href="https://github.com/markcalendario"
         icon="fab fa-github"
         text="GitHub"
+        target="_blank"
       />
     </aside>
   );
