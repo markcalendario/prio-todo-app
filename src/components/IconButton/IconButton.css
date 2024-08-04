@@ -1,10 +1,16 @@
 .icon-button {
-  padding: 5px;
+  padding: 7px;
   border: 0;
   border-radius: 3px;
   color: var(--gray-7);
   cursor: pointer;
   background-color: transparent;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: medium;
 }
 
 .icon-button:hover {

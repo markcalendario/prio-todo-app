@@ -3,11 +3,11 @@
   grid-area: sidebar;
 
   position: fixed;
-  top: 46px; /* Height of Navbar */
+  top: 50px; /* Height of Navbar */
   z-index: 1;
 
   overflow: auto;
-  height: calc(100vh - 46px);
+  height: calc(100vh - 50px);
   width: 250px;
   padding: 20px;
 
