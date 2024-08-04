@@ -1,65 +1,59 @@
 .task-card {
-  transition: 0.1s ease;
   padding: 15px 25px;
   background-color: var(--white);
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
 
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
   gap: 10px;
 }
 
-@media screen and (min-width: 1000px) {
-  .task-card {
-    flex-wrap: nowrap;
-  }
-}
-
 .task-card:hover {
-  transform: scale(1.5);
+  outline: 1px var(--gray-4) solid;
 }
 
-.task-card .context {
-  width: 100%;
+/* Top */
+
+.task-card .top {
+  display: flex;
+  align-content: center;
+  gap: 3px;
 }
 
-.task-card .context .title {
-  font-size: 18px;
-  font-weight: 600;
-  margin-top: 10px;
-}
-
-.task-card .context .title.strike {
-  text-decoration: line-through;
-  color: var(--gray-6);
-}
-
-.task-card .context .description {
-  color: var(--gray-6);
-  font-size: 14px;
-}
-
-.task-card .context .target-time {
-  display: inline-block;
-  background-color: var(--secondary-color);
-  padding: 5px 10px;
+.task-card .top .tab {
+  font-size: 12px;
+  padding: 5px 7px;
   border-radius: 3px;
-  font-size: 10px;
-  font-weight: 500;
+  display: inline-block;
+}
+
+.task-card .top .important {
+  background-color: var(--secondary-color);
   color: var(--white);
 }
 
-.task-card .context .posted-time {
-  font-size: 10px;
-  color: var(--gray-4);
-  font-weight: 500;
-  margin-top: 10px;
+.task-card .top .target-date {
+  background-color: var(--gray-2);
 }
 
-.task-card .options {
-  display: flex;
-  gap: 5px;
+/* Context */
+
+.task-card .context {
+  overflow-wrap: break-word;
+}
+
+.task-card .context .title {
+  transition: 0.2s ease;
+  word-break: break-all;
+}
+
+.task-card:hover .context .title {
+  color: var(--primary-color);
+}
+
+/* Bottom */
+
+.bottom .creation-date {
+  font-size: 12px;
 }

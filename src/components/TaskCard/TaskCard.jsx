@@ -65,16 +65,28 @@ export default function TaskCard({
       />
 
       <div className="task-card" data-aos="fade-up" data-aos-delay="100">
+        <div className="top">
+          {isImportant && (
+            <p className="tab important">
+              <i className="fas fa-fire fa-fw" /> Important
+            </p>
+          )}
+          <p className="tab target-date">{getRelativeDate(targetDate)}</p>
+        </div>
+
         <div className="context">
-          <p className="target-time">{getRelativeDate(targetDate)}</p>
           <h1 className={"title" + (status === "finished" ? ` strike` : "")}>
             {title}
           </h1>
           <p className="description">{description}</p>
-          <p className="posted-time">
+        </div>
+
+        <div className="bottom">
+          <p className="creation-date">
             {getRelativeDateTimeFromUnix(createdTimestamp)}
           </p>
         </div>
+
         <div className="options">
           <IconButton
             icon="fas fa-pen-to-square"
