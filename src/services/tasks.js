@@ -113,6 +113,10 @@ export default class Tasks {
     localStorage.setItem("tasks", JSON.stringify(updatedTasks));
   }
 
+  deleteAllTask() {
+    localStorage.removeItem("tasks");
+  }
+
   editTask(
     targetTaskId,
     newTitle,
@@ -158,5 +162,25 @@ export default class Tasks {
 
     localStorage.setItem("tasks", JSON.stringify(updatedTasks));
     return true;
+  }
+
+  setAllTasksToDone() {
+    const updatedTasks = [...this.tasks];
+
+    for (const task of updatedTasks) {
+      task.status = "finished";
+    }
+
+    localStorage.setItem("tasks", JSON.stringify(updatedTasks));
+  }
+
+  setAllTasksToUndone() {
+    const updatedTasks = [...this.tasks];
+
+    for (const task of updatedTasks) {
+      task.status = "pending";
+    }
+
+    localStorage.setItem("tasks", JSON.stringify(updatedTasks));
   }
 }

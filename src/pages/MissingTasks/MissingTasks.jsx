@@ -1,3 +1,4 @@
+import ControlBar from "@/components/ControlBar/ControlBar.jsx";
 import EmptySection from "@/components/EmptySection/EmptySection.jsx";
 import TaskCard from "@/components/TaskCard/TaskCard.jsx";
 import Content from "@/layouts/Dashboard/Content/Content.jsx";
@@ -52,6 +53,7 @@ export default function MissingTasks() {
         <Content
           title="Missing Tasks"
           description="List of tasks you're missing.">
+          <ControlBar onSuccess={fetchMissingTasks} />
           <div className="tasks-list">{renderMissingTasks()}</div>
         </Content>
       </Main>

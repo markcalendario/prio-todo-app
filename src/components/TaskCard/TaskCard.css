@@ -53,6 +53,10 @@
   color: var(--primary-color);
 }
 
+.task-card .context .title.strike {
+  text-decoration: line-through;
+}
+
 .task-card .context .description {
   font-size: 14px;
 }

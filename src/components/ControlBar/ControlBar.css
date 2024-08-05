@@ -1,0 +1,23 @@
+.control-bar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.control-bar .right {
+  display: flex;
+  gap: 5px;
+}
+
+.control-bar .left button {
+  background-color: var(--primary-color);
+  color: var(--gray-0);
+  font-size: small;
+}
+
+.control-bar .right button {
+  background-color: var(--secondary-color);
+  color: var(--gray-0);
+  padding: 10px;
+}

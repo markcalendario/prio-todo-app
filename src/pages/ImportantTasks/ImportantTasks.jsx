@@ -1,4 +1,4 @@
-import AddTaskBar from "@/components/AddTaskBar/AddTaskBar.jsx";
+import ControlBar from "@/components/ControlBar/ControlBar.jsx";
 import EmptySection from "@/components/EmptySection/EmptySection.jsx";
 import TaskCard from "@/components/TaskCard/TaskCard.jsx";
 import Content from "@/layouts/Dashboard/Content/Content.jsx";
@@ -53,7 +53,7 @@ export default function ImportantTasks() {
         <Content
           title="Important Tasks"
           description="List of important tasks you need to accomplish.">
-          <AddTaskBar onSuccess={fetchImportantTasks} />
+          <ControlBar onSuccess={fetchImportantTasks} />
           <div className="tasks-list">{renderImportantTasks()}</div>
         </Content>
       </Main>

@@ -1,4 +1,4 @@
-import AddTaskBar from "@/components/AddTaskBar/AddTaskBar.jsx";
+import ControlBar from "@/components/ControlBar/ControlBar.jsx";
 import EmptySection from "@/components/EmptySection/EmptySection.jsx";
 import TaskCard from "@/components/TaskCard/TaskCard.jsx";
 import Content from "@/layouts/Dashboard/Content/Content.jsx";
@@ -54,7 +54,7 @@ export default function PendingTasks() {
           title="Pending Tasks"
           description="List of tasks you need to finish."
           className="pending-task">
-          <AddTaskBar onSuccess={fetchPendingTasks} />
+          <ControlBar onSuccess={fetchPendingTasks} />
           <div className="tasks-list">{renderPendingTasks()}</div>
         </Content>
       </Main>
