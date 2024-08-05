@@ -18,7 +18,7 @@
 
 .sidebar .label {
   font-weight: bold;
-  color: var(--gray-7);
+  color: var(--gray-6);
 }
 
 @media screen and (min-width: 768px) {

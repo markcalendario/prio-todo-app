@@ -5,3 +5,7 @@
   flex-direction: column;
   gap: 20px;
 }
+
+.dashboard-content .dashboard-content-head h1 {
+  color: var(--primary-color);
+}
