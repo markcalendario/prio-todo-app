@@ -12,7 +12,7 @@ export default function Navbar({ toggleSidebarVisibility }) {
           />
         </div>
         <div className="brand">
-          <h1>Prio.</h1>
+          <h1>LexMeet</h1>
         </div>
       </div>
     </nav>
