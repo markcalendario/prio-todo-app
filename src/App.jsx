@@ -1,6 +1,7 @@
 import Aos from "aos";
 import "aos/dist/aos.css";
-import { useEffect } from "react";
+import { Fragment, useEffect } from "react";
+import { Toaster } from "react-hot-toast";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import FinishedTasks from "./pages/FinishedTasks/FinishedTasks.jsx";
 import ImportantTasks from "./pages/ImportantTasks/ImportantTasks.jsx";
@@ -32,5 +33,10 @@ export default function App() {
     Aos.init();
   }, []);
 
-  return <RouterProvider router={router} />;
+  return (
+    <Fragment>
+      <RouterProvider router={router} />
+      <Toaster position="top-right" reverseOrder={false} dar />
+    </Fragment>
+  );
 }

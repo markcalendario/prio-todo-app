@@ -1,6 +1,7 @@
 import { getCurrentDateAndTime, isDateInPast } from "@/utils/date.js";
 import dayjs from "dayjs";
 import { v4 as uuidv4 } from "uuid";
+import { showErrorToast, showSuccessToast } from "./toast.js";
 
 export default class Tasks {
   tasks = [];
@@ -34,12 +35,12 @@ export default class Tasks {
 
   createPendingTask(title, description, targetDate) {
     if (!title || !description || !targetDate) {
-      alert("All fields are required.");
+      showErrorToast("All fields are required.");
       return false;
     }
 
     if (isDateInPast(targetDate)) {
-      alert("You cannot create task for past dates.");
+      showErrorToast("You cannot create task for past dates.");
       return false;
     }
 
@@ -55,17 +56,18 @@ export default class Tasks {
 
     const updatedTasks = JSON.stringify([...this.tasks, newTask]);
     localStorage.setItem("tasks", updatedTasks);
+    showSuccessToast(`Task '${title}' created successfully.`);
     return true;
   }
 
   createImportantTask(title, description, targetDate) {
     if (!title || !description || !targetDate) {
-      alert("All fields are required.");
+      showErrorToast("All fields are required.");
       return false;
     }
 
     if (isDateInPast(targetDate)) {
-      alert("You cannot create task for past dates.");
+      showErrorToast("You cannot create task for past dates.");
       return false;
     }
 
@@ -81,6 +83,7 @@ export default class Tasks {
 
     const updatedTasks = JSON.stringify([...this.tasks, newTask]);
     localStorage.setItem("tasks", updatedTasks);
+    showSuccessToast(`Important task '${title}' created successfully.`);
     return true;
   }
 
@@ -93,6 +96,7 @@ export default class Tasks {
       }
     }
 
+    showSuccessToast("Task completed successfully.");
     localStorage.setItem("tasks", JSON.stringify(updatedTasks));
   }
 
@@ -105,15 +109,18 @@ export default class Tasks {
       }
     }
 
+    showSuccessToast("Task set to pending successfully.");
     localStorage.setItem("tasks", JSON.stringify(updatedTasks));
   }
 
   deleteTask(taskId) {
     const updatedTasks = this.tasks.filter((task) => task.id !== taskId);
+    showSuccessToast("Task deleted successfully.");
     localStorage.setItem("tasks", JSON.stringify(updatedTasks));
   }
 
   deleteAllTask() {
+    showSuccessToast("All tasks deleted successfully.");
     localStorage.removeItem("tasks");
   }
 
@@ -131,13 +138,13 @@ export default class Tasks {
       !newTargetDate ||
       typeof newIsImportant !== "boolean"
     ) {
-      alert("All fields are required.");
+      showErrorToast("All fields are required.");
       return false;
     }
 
     // Past date validation
     if (isDateInPast(newTargetDate)) {
-      alert("You cannot set this task for past dates.");
+      showErrorToast("You cannot set this task for past dates.");
       return false;
     }
 
@@ -145,7 +152,7 @@ export default class Tasks {
     const taskIndex = this.tasks.findIndex((task) => task.id === targetTaskId);
 
     if (taskIndex === -1) {
-      alert("Task not found.");
+      showErrorToast("Task not found.");
       return false;
     }
 
@@ -160,6 +167,7 @@ export default class Tasks {
       isImportant: newIsImportant
     };
 
+    showSuccessToast("Task edited successfully.");
     localStorage.setItem("tasks", JSON.stringify(updatedTasks));
     return true;
   }
@@ -171,6 +179,7 @@ export default class Tasks {
       task.status = "finished";
     }
 
+    showSuccessToast("All tasks have been set to finished successfully.");
     localStorage.setItem("tasks", JSON.stringify(updatedTasks));
   }
 
@@ -181,6 +190,7 @@ export default class Tasks {
       task.status = "pending";
     }
 
+    showSuccessToast("All tasks have been set to pending successfully.");
     localStorage.setItem("tasks", JSON.stringify(updatedTasks));
   }
 }
