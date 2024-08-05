@@ -22,4 +22,5 @@
 .navbar .fluid-container .hamburger .icon-button {
   color: var(--primary-color);
   background-color: var(--white);
+  font-size: large;
 }
