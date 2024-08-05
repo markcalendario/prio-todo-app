@@ -46,10 +46,15 @@
 .task-card .context .title {
   transition: 0.2s ease;
   word-break: break-all;
+  font-size: 18px;
 }
 
 .task-card:hover .context .title {
   color: var(--primary-color);
+}
+
+.task-card .context .description {
+  font-size: 14px;
 }
 
 /* Bottom */
