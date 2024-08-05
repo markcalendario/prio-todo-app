@@ -2,8 +2,8 @@ import "./Content.css";
 
 export default function Content({ title, description, children, className }) {
   return (
-    <div className={"content"}>
-      <div className="head">
+    <div className="dashboard-content">
+      <div className="dashboard-content-head">
         <h1>{title}</h1>
         <p>{description}</p>
       </div>
