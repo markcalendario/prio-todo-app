@@ -1,6 +1,6 @@
 import useModal from "@/hooks/useModal.jsx";
 import Tasks from "@/services/tasks.js";
-import { getRelativeDate, getRelativeDateTimeFromUnix } from "@/utils/date.js";
+import { getRelativeDateAndTime } from "@/utils/date.js";
 import { Fragment } from "react";
 import IconButton from "../IconButton/IconButton.jsx";
 import DeleteTaskModal from "../Modal/Collections/DeleteTaskModal/DeleteTaskModal.jsx";
@@ -71,7 +71,9 @@ export default function TaskCard({
               <i className="fas fa-fire fa-fw" /> Important
             </p>
           )}
-          <p className="tab target-date">{getRelativeDate(targetDate)}</p>
+          <p className="tab target-date">
+            {getRelativeDateAndTime(targetDate)}
+          </p>
         </div>
 
         <div className="context">
@@ -83,7 +85,7 @@ export default function TaskCard({
 
         <div className="bottom">
           <p className="creation-date">
-            {getRelativeDateTimeFromUnix(createdTimestamp)}
+            {getRelativeDateAndTime(createdTimestamp)}
           </p>
         </div>
 

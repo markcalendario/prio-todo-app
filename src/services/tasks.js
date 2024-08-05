@@ -1,4 +1,4 @@
-import { isDateInPast } from "@/utils/date.js";
+import { getCurrentDateAndTime, isDateInPast } from "@/utils/date.js";
 import dayjs from "dayjs";
 import { v4 as uuidv4 } from "uuid";
 
@@ -45,7 +45,7 @@ export default class Tasks {
 
     const newTask = {
       id: uuidv4(),
-      createdTimestamp: dayjs().unix(),
+      createdTimestamp: getCurrentDateAndTime(),
       title: title,
       description: description,
       targetDate: targetDate,
@@ -71,7 +71,7 @@ export default class Tasks {
 
     const newTask = {
       id: uuidv4(),
-      createdTimestamp: dayjs().unix(),
+      createdTimestamp: getCurrentDateAndTime(),
       title: title,
       description: description,
       targetDate: targetDate,

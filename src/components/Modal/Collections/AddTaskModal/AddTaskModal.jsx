@@ -68,7 +68,7 @@ export default function AddTaskModal({ isVisible, toggleModal, onSuccess }) {
       <Input
         id="target"
         name="target"
-        type="date"
+        type="datetime-local"
         placeholder="Target Date"
         onChange={handleInputChange}
         value={newTaskData.target}

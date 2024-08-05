@@ -69,7 +69,7 @@ export default function EditTaskModal({
       <Input
         id="targetDate"
         name="targetDate"
-        type="date"
+        type="datetime-local"
         placeholder="Target Date"
         onChange={handleInputChange}
         value={taskData.targetDate}

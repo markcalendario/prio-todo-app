@@ -3,15 +3,14 @@ import relativeTime from "dayjs/plugin/relativeTime";
 dayjs.extend(relativeTime);
 
 export function isDateInPast(dateToCheck) {
-  return dayjs().isAfter(dateToCheck, "day");
+  return dayjs().isAfter(dayjs(dateToCheck, "YYYY-MM-DDTHH:mm"));
 }
 
-export function getRelativeDate(date) {
-  date = dayjs(date, "YYYY-MM-DD");
+export function getRelativeDateAndTime(date) {
+  date = dayjs(date, "YYYY-MM-DDTHH:mm");
   return date.from(dayjs());
 }
 
-export function getRelativeDateTimeFromUnix(unix) {
-  unix = dayjs.unix(unix);
-  return dayjs().to(unix);
+export function getCurrentDateAndTime() {
+  return dayjs().format("YYYY-MM-DDTHH:mm");
 }
