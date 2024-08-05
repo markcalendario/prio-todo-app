@@ -3,6 +3,7 @@ import "aos/dist/aos.css";
 import { Fragment, useEffect } from "react";
 import { Toaster } from "react-hot-toast";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import AllTasks from "./pages/AllTasks/AllTasks.jsx";
 import FinishedTasks from "./pages/FinishedTasks/FinishedTasks.jsx";
 import ImportantTasks from "./pages/ImportantTasks/ImportantTasks.jsx";
 import MissingTasks from "./pages/MissingTasks/MissingTasks.jsx";
@@ -12,7 +13,7 @@ import "./styles/main.css";
 export default function App() {
   const router = createBrowserRouter([
     {
-      path: "/",
+      path: "/pending",
       element: <PendingTasks />
     },
     {
@@ -26,6 +27,10 @@ export default function App() {
     {
       path: "/missing",
       element: <MissingTasks />
+    },
+    {
+      path: "/",
+      element: <AllTasks />
     }
   ]);
 

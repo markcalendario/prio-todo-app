@@ -10,6 +10,10 @@ export default class Tasks {
     this.tasks = JSON.parse(localStorage.getItem("tasks")) || [];
   }
 
+  getAllTasks() {
+    return this.tasks;
+  }
+
   getPendingTasks() {
     return this.tasks.filter((task) => task.status === "pending");
   }

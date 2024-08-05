@@ -15,9 +15,10 @@ export default function TaskCard({
   targetDate,
   createdTimestamp,
   isImportant,
+  onEditSuccess,
+  onSetToPendingSuccess,
   onDeleteSuccess,
-  onFinishSuccess,
-  onSetToPendingSuccess
+  onFinishSuccess
 }) {
   const [isDelTaskVisible, toggleIsDelTaskVisible] = useModal(false);
   const [isEditTaskVisible, toggleIsEditTaskVisible] = useModal(false);
@@ -54,7 +55,7 @@ export default function TaskCard({
       <EditTaskModal
         isVisible={isEditTaskVisible}
         toggleModal={toggleIsEditTaskVisible}
-        onSuccess={onDeleteSuccess}
+        onSuccess={onEditSuccess}
         taskData={{
           id: id,
           title: title,
