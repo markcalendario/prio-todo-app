@@ -30,8 +30,8 @@ export default class Tasks {
 
   getMissingTasks() {
     return this.tasks.filter((task) => {
-      const targetDate = dayjs(task.targetDate, "YYYY-MM-DD");
-      const isMissing = dayjs().isAfter(targetDate, "day");
+      const targetDate = dayjs(task.targetDate, "YYYY-MM-DDTHH:mm");
+      const isMissing = dayjs().isAfter(targetDate);
       const isPending = task.status === "pending";
       return isMissing && isPending;
     });
