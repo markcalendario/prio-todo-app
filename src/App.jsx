@@ -41,7 +41,7 @@ export default function App() {
   return (
     <Fragment>
       <RouterProvider router={router} />
-      <Toaster position="top-right" reverseOrder={false} dar />
+      <Toaster position="bottom-right" reverseOrder={false} />
     </Fragment>
   );
 }
