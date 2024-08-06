@@ -1,6 +1,6 @@
 import useModal from "@/hooks/useModal.jsx";
 import Tasks from "@/services/tasks.js";
-import { getRelativeDateAndTime } from "@/utils/date.js";
+import { getRelativeDateAndTime, isDateInPast } from "@/utils/date.js";
 import { Fragment } from "react";
 import IconButton from "../IconButton/IconButton.jsx";
 import DeleteTaskModal from "../Modal/Collections/DeleteTaskModal/DeleteTaskModal.jsx";
@@ -43,6 +43,10 @@ export default function TaskCard({
     onSetToPendingSuccess();
   };
 
+  const shouldMissingTabDisplay = () => {
+    return isDateInPast(targetDate) && status === "pending";
+  };
+
   return (
     <Fragment>
       <DeleteTaskModal
@@ -72,15 +76,18 @@ export default function TaskCard({
               <i className="fas fa-fire fa-fw" /> Important
             </p>
           )}
+          {shouldMissingTabDisplay() && (
+            <p className="tab missing">
+              <i className="fas fa-warning fa-fw" /> Missing
+            </p>
+          )}
           <p className="tab target-date">
             {getRelativeDateAndTime(targetDate)}
           </p>
         </div>
 
-        <div className="context">
-          <h1 className={"title" + (status === "finished" ? ` strike` : "")}>
-            {title}
-          </h1>
+        <div className={"context" + (status === "finished" ? ` strike` : "")}>
+          <h1 className="title">{title}</h1>
           <p className="description">{description}</p>
         </div>
 

@@ -17,6 +17,7 @@
 
 .task-card .top {
   display: flex;
+  flex-wrap: wrap;
   align-content: center;
   gap: 3px;
 }
@@ -30,6 +31,11 @@
 
 .task-card .top .important {
   background-color: var(--secondary-color);
+  color: var(--white);
+}
+
+.task-card .top .missing {
+  background-color: var(--red);
   color: var(--white);
 }
 
@@ -53,7 +59,7 @@
   color: var(--primary-color);
 }
 
-.task-card .context .title.strike {
+.task-card .context.strike {
   text-decoration: line-through;
 }
 
